@@ -1,26 +1,12 @@
-/* 
-COLORS:
-
-primary: #FCF3C7
-secondary: #C49A93
-tertiary: #605960
-
-gray: #949EA0
-burnt-orange: #BF5229
-orange: #F99636
-eggplant: #342529
-
-*/
-
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: inherit; }
 
 html {
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -28,126 +14,99 @@ body {
   line-height: 1.2;
   color: #777;
   padding: 3rem;
-}
+  box-sizing: border-box; }
 
 .header {
   height: 95vh;
   background-image: url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%); }
 
-  /*clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%, 75vh 100%);*/
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%);
-}
-
-.text-box {
+.header__text-box {
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-}
+  text-align: center; }
 
-.heading_primary {
+.heading-primary {
   color: #fff;
   text-transform: uppercase;
+  backface-visibility: hidden; }
 
-  backface-visibility: hidden;
-}
-
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 11rem;
   font-weight: 900;
   letter-spacing: 3rem;
+  animation: moveInLeft 3s ease-out; }
 
-  animation: moveInLeft 3s ease-out;
-}
-
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 10rem;
   font-weight: 300;
   letter-spacing: 5.5rem;
   margin-bottom: 5rem;
-
-  animation: moveInRight 3s ease-out;
-}
+  animation: moveInRight 3s ease-out; }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem);
-  }
-
+    transform: translateX(-10rem); }
   80% {
-    transform: translateX(1rem);
-  }
-
+    transform: translateX(1rem); }
   100% {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
+    transform: translateX(0); } }
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(10rem);
-  }
-
+    transform: translateX(10rem); }
   80% {
-    transform: translateX(-1rem);
-  }
-
+    transform: translateX(-1rem); }
   100% {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
+    transform: translateX(0); } }
 
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(3rem);
-  }
-
+    transform: translateY(3rem); }
   100% {
     opacity: 1;
-    transform: translate(0);
-  }
-}
+    transform: translate(0); } }
 
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
-  display: inline-block; /*always do this if you want to give padding or height to an element*/
+  display: inline-block;
+  /*always do this if you want to give padding or height to an element*/
   border-radius: 10rem;
   transition: all 0.2s;
-  position: relative; /* set this in order to set position of button pseudo element*/
+  position: relative;
+  /* set this in order to set position of button pseudo element*/
   top: 40px;
-  font-size: 1.6rem;
-}
+  font-size: 1.6rem; }
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
-}
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8); }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
-  color: #777;
-}
+  color: #777; }
 
 .btn::after {
-  content: ''; /* have to specify content and display or this element won't appear*/
+  content: '';
+  /* have to specify content and display or this element won't appear*/
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -155,20 +114,17 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* puts pseudo element behind button */
-  transition: all 0.4s;
-}
+  z-index: -1;
+  /* puts pseudo element behind button */
+  transition: all 0.4s; }
 
-.btn-white::after {
-  background-color: #fff;
-}
+.btn--white::after {
+  background-color: #fff; }
 
 .btn:hover::after {
   transform: scale(1.4) scaleY(1.6);
-  opacity: 0;
-}
+  opacity: 0; }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
-  animation-fill-mode: backwards;
-}
+  animation-fill-mode: backwards; }
