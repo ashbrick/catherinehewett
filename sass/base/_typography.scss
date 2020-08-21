@@ -79,10 +79,39 @@ body {
   }
 }
 
+.heading-secondary-3 {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  color: $color-primary-light;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
 .heading-tertiary {
   font-size: $default-font-size;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.heading-tertiary-dark {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-secondary-dark;
+}
+
+.heading-tertiary-dark-2 {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $color-dark;
 }
 
 .paragraph {
@@ -92,4 +121,8 @@ body {
   &:not(last-child) {
     margin-bottom: 3rem;
   }
+}
+
+.paragraph-testimonial {
+  color: $color-dark;
 }
