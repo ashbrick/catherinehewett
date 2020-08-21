@@ -1,0 +1,122 @@
+.card {
+  // perspective property has to be on parent element (this is for hover)
+  perspective: 150rem;
+  -moz-perspective: 150rem; // so it'll work in Firefox
+  position: relative;
+  height: 52rem; // added height to the parent element because the card side divs collapsed when made absolute
+
+  &__side {
+    color: #fff;
+    font-size: 2rem;
+
+    height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute; // so that card sides are on top of each other (absolute takes the cards out of their natural element flow, so their divs collapse and need height)
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; // hides back part of element
+    border-radius: 3px;
+    overflow: hidden; // keeps image from removing border-radius
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    &--front {
+      background-color: $color-white;
+    }
+
+    // back is already at 180 degrees because it's in the back
+    &--back {
+      transform: rotateY(180deg);
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-primary,
+          $color-secondary-dark
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-dark,
+          $color-secondary-light
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary-light,
+          $color-secondary-light-2
+        );
+      }
+    }
+  }
+
+  // when you hover over the card, the side will be transformed (switches side shown)
+  &:hover &__side--front {
+    transform: rotateY(
+      -180deg
+    ); // rotate to opposite direction of the back transform above
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // FRONT OF CARD
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+
+    &--1 {
+      background-image: url(../img/soul.jpg);
+    }
+
+    &--2 {
+      background-image: url(../img/coach.jpg);
+    }
+
+    &--3 {
+      background-image: url(../img/light_play.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.9rem;
+    letter-spacing: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 2px 2px 4px $color-black;
+    color: $color-white;
+    position: absolute;
+    top: 10rem;
+    left: 10%;
+    right: 10%;
+  }
+
+  &__details {
+    padding: 3rem;
+
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+
+      li {
+        color: $color-gray-dark;
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $color-gray-light-2;
+        }
+      }
+    }
+  }
+}
